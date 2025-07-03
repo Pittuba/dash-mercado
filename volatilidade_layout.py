@@ -67,11 +67,9 @@ df_risco_melt['Categoria'] = df_risco_melt['Ativo'].map(categorias)
 # Se existir df_risco_melt_vol, faça a mesma coisa para ele
 df_risco_melt_vol = df_risco_melt.copy()
 
-
 # Lista única de categorias para o dropdown
 ordem_categorias = ['Renda Fixa', 'Renda Variável', 'Crédito', 'Multimercado', 'Internacional', 'Todos']
 categorias_unicas = [cat for cat in ordem_categorias if cat in df_risco_melt['Categoria'].unique()]
-
 
 # Função para meses por ano
 def meses_por_ano(ano):
@@ -151,10 +149,12 @@ layout = html.Div([
     style_table={'marginTop': '20px', 'overflowX': 'auto'},
 )
 
-
 ],
 style={
     'backgroundColor': '#2c3e50',
     'minHeight': '100vh',
     'padding': '15px 20px 10px 20px'
 })
+
+
+
