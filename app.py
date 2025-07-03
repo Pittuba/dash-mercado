@@ -977,8 +977,10 @@ def atualizar_descricao_e_retorno(ativo_selecionado):
 def manter_conexao_ativa(n):
     return ''
 
+port = int(os.environ.get("PORT", 10000))
+
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(host="0.0.0.0", port=port, debug=True)
 
 
 
