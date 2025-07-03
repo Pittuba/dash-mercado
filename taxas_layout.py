@@ -4,9 +4,8 @@ import re
 import os
 
 # ADICIONAR COLUNA DE FECHAMENTO DE TAXA
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(BASE_DIR, "Data", "Base - Indicadores.xlsx")
+file_path= os.path.join(BASE_DIR, "Data", "Base - Indicadores.xlsx")
 
 # os.path.join(os.path.dirname(__file__), 'Base - Indicadores.xlsx')
 
@@ -49,10 +48,9 @@ def classificar_tipo(titulo):
     elif 'ntn-b' in titulo_lower:
         return 'Pós Fixado (IPCA)'
     elif 'ntn-c' in titulo_lower:
-        return 'Pós Fixado (IGPM)'
+        return 'Pós Fixado (IGP-M)'
     else:
         return 'Pré-fixados'
-
 
 df_taxas_melted['Tipo'] = df_taxas_melted['Titulo'].apply(classificar_tipo)
 
@@ -110,9 +108,8 @@ def adicionar_fechamento_na_data(df_base, df_taxas, data_selecionada):
 
     return df_result
 
-
 # Layout do dashboard da aba Taxas (mantido igual)
-layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, children=[
+layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHeight': '100vh'}, children=[
 
     # Linha de filtros (com whiteSpace para alinhar horizontalmente)
     html.Div([
@@ -131,7 +128,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
                     'borderRadius': '4px'
                 }
             ),
-        ], style={'width': '10%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
+        ], style={'width': '7%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Mês
             html.Label("Mês:", style={'color': '#ecf0f1'}),
@@ -145,7 +142,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
                     'borderRadius': '4px'
                 }
             )
-        ], style={'width': '10%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
+        ], style={'width': '8%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Ano de Vencimento
             html.Label("Ano de Vencimento:", style={'color': '#ecf0f1'}),
@@ -169,11 +166,11 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
             dcc.Dropdown(
                 id='taxas-periodo-dropdown',
                 options=[
-                    {'label': 'Últimos 3 meses', 'value': 3},
-                    {'label': 'Últimos 6 meses', 'value': 6},
-                    {'label': 'Últimos 12 meses', 'value': 12},
-                    {'label': 'Últimos 24 meses', 'value': 24},
-                    {'label': 'Últimos 36 meses', 'value': 36},
+                    {'label': '3 meses', 'value': 3},
+                    {'label': '6 meses', 'value': 6},
+                    {'label': '12 meses', 'value': 12},
+                    {'label': '24 meses', 'value': 24},
+                    {'label': '36 meses', 'value': 36},
                 ],
                 value=12,
                 clearable=False,
@@ -185,7 +182,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
                     'height': '35px'
                 }
             )
-        ], style={'width': '10%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
+        ], style={'width': '8%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Tipo de Indexação
     html.Label("Tipo de Indexação:", style={'color': '#ecf0f1'}),
@@ -195,8 +192,8 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
             options=[
                 {'label': 'Pré-fixados', 'value': 'Pré-fixados'},
                 {'label': 'Pós Fixado (IPCA)', 'value': 'Pós Fixado (IPCA)'},
-                {'label': 'Pós Fixado (IGPM)', 'value': 'Pós Fixado (IGPM)'},
-                {'label': 'Pós Fixado (Selic)', 'value': 'Pós Fixado (Selic)'}
+                {'label': 'Pós Fixado (Selic)', 'value': 'Pós Fixado (Selic)'},
+                {'label': 'Pós Fixado (IGP-M)', 'value': 'Pós Fixado (IGP-M)'}
             ],
             value='Pré-fixados',
             labelStyle={'display': 'inline-block', 'marginRight': '10px', 'color': '#ecf0f1','fontSize': '15px',},
@@ -222,8 +219,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
             'justifyContent': 'center',
         }
     )
-], style={'width': '22%', 'display': 'inline-block', 'verticalAlign': 'top'}),
-
+], style={'width': '47%', 'minWidth': '400px','display': 'inline-block', 'verticalAlign': 'top'}),
 
     ], style={
         'display': 'flex',
@@ -276,4 +272,6 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px'}, child
     dcc.Store(id='tabela-duration-store')
 
 ])
+
+
 
