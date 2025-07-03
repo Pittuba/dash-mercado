@@ -135,7 +135,14 @@ categorias_unicas = [
 opcoes_categorias = [{'label': cat, 'value': cat} for cat in categorias_unicas]
 
 # Layout adaptado para Retorno (mantendo seu estilo)
-layout = html.Div(style={'backgroundColor': '#2c3e50', 'padding': '20px', 'fontFamily': 'Arial', 'height': '100vh'}, children=[
+layout = html.Div(style={'backgroundColor': '#2c3e50', 
+                        'paddingTop': '5px',
+                        'paddingLeft': '20px',
+                        'paddingRight': '20px',
+                        'paddingBottom': '20px', 
+                        'fontFamily': 'Arial',
+                        'minHeight': '100vh',
+                        'height': 'auto'}, children=[
     html.Div([
         html.Div([
             html.Label("Ano:", style={'color': '#ecf0f1', 'fontWeight': 'bold'}),
@@ -182,7 +189,8 @@ layout = html.Div(style={'backgroundColor': '#2c3e50', 'padding': '20px', 'fontF
     dcc.Graph(
         id='grafico-retorno',
         style={
-            'height': '40vh', 
+            'height': '60vh', 
+            'width': '100%',        # remover esse qlq coisa
             'border': '1px solid #1f2c3d',
             'borderRadius': '10px',
             'boxShadow': '0 4px 10px rgba(0, 0, 0, 0.3)',
@@ -236,14 +244,19 @@ layout = html.Div(style={'backgroundColor': '#2c3e50', 'padding': '20px', 'fontF
             dcc.Graph(
                 id='grafico-risco-retorno',
                 style={
-                    'height': '28vh',
+                    'minHeight': '300px',
+                    'maxHeight': '500px',
+                    'height': 'auto',
+                    'width': '100%',
+                    'maxWidth': '600px',
+                    'margin': '0 auto',
                     # 'border': '1px solid #1f2c3d',
                     # 'borderRadius': '10px',
                     'boxShadow': '0 4px 10px rgba(0, 0, 0, 0.3)',
                     'marginLeft': '0 auto'  # move levemente à esquerda   # -10px
                 }
             )
-        ], style={'flex': '0 0 41%', 'verticalAlign': 'top'})
+        ], style={'flex': '1 1 100%', 'minWidth': '300px','maxWidth': '100%', 'verticalAlign': 'top'})       # 'flex': '0 0 41%',
     ], style={
         'display': 'flex',
         'flexWrap': 'nowrap',
@@ -252,3 +265,6 @@ layout = html.Div(style={'backgroundColor': '#2c3e50', 'padding': '20px', 'fontF
         'gap': '7px'
     })
 ])
+
+
+
