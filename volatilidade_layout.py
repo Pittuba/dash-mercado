@@ -50,7 +50,7 @@ for col in df_risco.columns:
             df_risco[col].astype(str)
             .str.replace('%', '', regex=False)
             .str.replace(',', '.', regex=False)
-            .astype(float) / 100
+            .astype(float) 
         )
 
 ativos = [col for col in df_risco.columns if col != 'Data']
@@ -155,6 +155,8 @@ style={
     'minHeight': '100vh',
     'padding': '15px 20px 10px 20px'
 })
+
+
 
 
 
