@@ -623,7 +623,7 @@ layout = html.Div([
         'display': 'flex',
         'alignItems': 'center',
         'justifyContent': 'space-between',
-        'marginBottom': '1px'
+        'marginBottom': '10px'
     }),
 
     # Gráfico de barras no topo
@@ -817,7 +817,7 @@ layout = html.Div([
     # Intervalo para callback de manter conexão
     dcc.Interval(id='interval-component', interval=300000, n_intervals=0)
 ], style={
-    'padding': '1px 30px',          # 20px 30px
+    'padding': '10px 30px',          # 20px 30px
     'backgroundColor': '#2c3e50',
     'minHeight': '100vh',
     'boxSizing': 'border-box',
