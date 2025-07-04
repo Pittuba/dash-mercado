@@ -19,7 +19,7 @@ def meses_por_ano(ano):
     return sorted(df_inflacao[df_inflacao['Data'].dt.year == ano]['Data'].dt.month.unique())
 
 # Layout da aba de inflação
-layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '15px 30px 30px 30px', 'fontFamily': 'Arial', 'minHeight': '100vh'}, children=[
+layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '15px 30px 30px 30px', 'fontFamily': 'Arial', 'minHeight': '100vh', 'fontFamily': 'Arial',}, children=[
     # html.H2("Dashboard de Inflação", style={'color': '#ecf0f1', 'textAlign': 'center', 'fontSize': '30px', 'marginBottom': '30px'}),  # removido
     html.Div([
         html.Div([
@@ -164,7 +164,7 @@ def gerar_grafico_e_tabela(ano, mes):
             x=0.5,
             bgcolor='#34495e',  
             borderwidth=1,
-            font=dict(color='black')
+            font=dict(color='white')
         ),
         title_font=dict(color='#ecf0f1', size=20)
 )
