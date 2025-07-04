@@ -695,7 +695,7 @@ layout = html.Div([
                         reverse=True
                     )[:5]
                 ]),
-                html.Div("📉 Maiores baixas", style={
+                html.Div("📉 Piores retornos", style={
                     'color': 'tomato',
                     'marginTop': '1px',
                     'marginBottom': '1px',
