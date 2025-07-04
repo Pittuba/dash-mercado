@@ -115,15 +115,14 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
     html.Div([
 
         html.Div([  # Ano
-            html.Label("Ano:", style={'color': '#ecf0f1'}),
+            html.Label("Ano:", style={'color': 'white'}),
             dcc.Dropdown(
                 id='taxas-ano-dropdown',
                 options=[{'label': str(ano), 'value': ano} for ano in anos_disponiveis],
                 value=anos_disponiveis[-1] if anos_disponiveis else None,
                 clearable=False,
                 style={
-                    'color': '#ecf0f1',
-                    'backgroundColor': '#2c3e50',
+                    'backgroundColor': 'white',
                     'borderColor': '#1f2c3d',
                     'borderRadius': '4px'
                 }
@@ -131,13 +130,12 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
         ], style={'width': '7%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Mês
-            html.Label("Mês:", style={'color': '#ecf0f1'}),
+            html.Label("Mês:", style={'color': 'white'}),
             dcc.Dropdown(
                 id='taxas-mes-dropdown',
                 clearable=False,
                 style={
-                    'color': '#ecf0f1',
-                    'backgroundColor': '#2c3e50',
+                    'backgroundColor': 'white',
                     'borderColor': '#1f2c3d',
                     'borderRadius': '4px'
                 }
@@ -145,7 +143,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
         ], style={'width': '8%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Ano de Vencimento
-            html.Label("Ano de Vencimento:", style={'color': '#ecf0f1'}),
+            html.Label("Ano de Vencimento:", style={'color': 'white'}),
             dcc.Dropdown(
                 id='taxas-venc-dropdown',
                 options=[{'label': str(ano), 'value': ano} for ano in sorted(df_taxas_melted['AnoVencimento'].dropna().unique())],
@@ -153,8 +151,8 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
                 clearable=True,
                 multi=True,
                 style={
-                    'color': '#ecf0f1',
-                    'backgroundColor': '#2c3e50',
+                    'backgroundColor': 'white',
+                    # 'backgroundColor': '#2c3e50',
                     'borderColor': '#1f2c3d',
                     'borderRadius': '4px'
                 }
@@ -162,7 +160,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
         ], style={'width': '15%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Intervalo
-            html.Label("Intervalo:", style={'color': '#ecf0f1'}),
+            html.Label("Intervalo:", style={'color': 'white'}),
             dcc.Dropdown(
                 id='taxas-periodo-dropdown',
                 options=[
@@ -175,8 +173,8 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
                 value=12,
                 clearable=False,
                 style={
-                    'color': '#ecf0f1',
-                    'backgroundColor': '#2c3e50',
+                    # 'color': 'white',
+                    'backgroundColor': 'white',
                     'borderColor': '#1f2c3d',
                     'borderRadius': '4px',
                     'height': '35px'
@@ -185,7 +183,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
         ], style={'width': '8%', 'display': 'inline-block', 'verticalAlign': 'top', 'marginRight': '1%'}),
 
         html.Div([  # Tipo de Indexação
-    html.Label("Tipo de Indexação:", style={'color': '#ecf0f1'}),
+    html.Label("Tipo de Indexação:", style={'color': '#ecf0f1', 'fontWeight': 'bold'}),
     html.Div(
         dcc.RadioItems(
             id='taxas-tipo-radio',
@@ -251,7 +249,7 @@ layout = html.Div(style={'backgroundColor': '#34495e', 'padding': '20px', 'minHe
             {'name': 'Basis Points (Ano)', 'id': 'BP_Ano', 'type': 'numeric', 'format': {'specifier': '.2f'}},
             {'name': 'Duration', 'id': 'Duration', 'type': 'text'}
         ],
-        data=[],
+        data=[],    
         style_header={
             'backgroundColor': '#34495e',
             'color': '#ecf0f1',
