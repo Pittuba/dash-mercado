@@ -793,7 +793,7 @@ layout = html.Div([
             'minWidth': '240px',
             'maxWidth': '300px',
             'maxHeight': '35vh',
-            'minHeight': '230px',
+            'minHeight': '245px',
             'overflowY': 'hidden',
             'boxShadow': '0 4px 15px rgba(255, 255, 255, 0.15)',
             'fontFamily': "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
