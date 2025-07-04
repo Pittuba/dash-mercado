@@ -135,7 +135,7 @@ def atualizar_grafico_precos(ano, mes, categoria, intervalo):
             dict(
                 text='*Clique 2x no ativo para visualização única',
                 xref='paper', yref='paper',
-                x=0.98, y=1.05,     
+                x=0.98, y=1.048,     
                 showarrow=False,
                 font=dict(size=12, color='white')
             )
@@ -352,10 +352,14 @@ def atualizar_grafico_risco(ano, mes, categoria):
     fig = px.line(df_filtrado, x='Data', y='Volatilidade', color='Ativo',
                   title='Volatilidade (Risco)', markers=True, template='plotly_dark')
     fig.update_traces(hoverinfo='skip')
+    # fig.update_traces(hovertemplate='%{x}<br>%{y:.2%}<extra>%{fullData.name}</extra>')
+
 
     fig.update_layout(
     paper_bgcolor='#34495e',
     plot_bgcolor='#34495e',
+    yaxis_tickformat='.0%',
+    yaxis=dict(tickformat='.2%'),
     legend=dict(
         orientation='h',
         yanchor='bottom',
@@ -928,6 +932,13 @@ def atualizar_evolucao(n_clicks, caminho_arquivo):
         bgcolor='#34495e',  
         bordercolor='#34495e'   # 2c3e50
     )) 
+
+    fig.update_xaxes(
+    color='white',          
+    )
+    fig.update_yaxes(
+    color='white')
+
     data_table = df_evolucao.to_dict('records')
     
     return fig, data_table
